@@ -8,11 +8,12 @@ import se.jensen.johanna.modularmonolithdemo.booking.api.BookingService;
 
 @RequiredArgsConstructor
 @RestController
-public class BookingController {
+// Controller är inte public eftersom INGA andra moduler ska kommunicera med den
+class BookingController {
 
+  // injicerar interface- ej service impl
   private final BookingService bookingService;
 
-  // även här anropar interface
   @PostMapping("/booking/{serviceId}")
   public void createBooking(@PathVariable int serviceId) {
     bookingService.createBooking(serviceId);
