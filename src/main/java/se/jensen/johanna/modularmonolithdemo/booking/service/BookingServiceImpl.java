@@ -1,11 +1,13 @@
 package se.jensen.johanna.modularmonolithdemo.booking.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import se.jensen.johanna.modularmonolithdemo.booking.api.BookingService;
 import se.jensen.johanna.modularmonolithdemo.booking.helper.HelperClass;
 import se.jensen.johanna.modularmonolithdemo.catalog.api.CatalogService;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 // Notera 'public' är borta. Det gör det package-private vilket vi VILL i modulär monolit
@@ -27,6 +29,10 @@ class BookingServiceImpl implements BookingService {
   @Override
   public void confirmPaidBooking(int bookingId) {
     // hantera eventet som inkommit
+  }
+
+  private void getPrivateDto() {
+    PackagePrivateDTO dto = new PackagePrivateDTO(1);
   }
 
   private String getHelpFromHelper() {
